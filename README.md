@@ -56,7 +56,7 @@ fractal-mind/
 ├── img/fractal.svg                 ← the fractal tree (embedded on index/about)
 ├── css/style.css                   ← shared dark cosmic theme
 ├── js/hud.js                       ← scroll progress + active table of contents
-├── js/fractal.js                   ← mouse parallax for the embedded fractal
+├── js/fractal.js                   ← parallax + neon pointer FX for the fractal
 └── robots.txt                      ← welcome note for crawlers
 ```
 

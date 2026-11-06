@@ -36,6 +36,11 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; color-scheme: da
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .hero::after { display: none; }
+  .hero h1,
+  .hero-fractal,
+  .hero-fractal-embed { animation: none !important; }
+  .hero-fractal-embed { transition: none; }
 }
 
 body {
@@ -196,12 +201,56 @@ h1, h2, h3, h4 {
    pointer-events:none except for the glowing nodes.
    The SVG canvas is black; screen blending lets only the neon artwork
    add light over the page, so the embed has no visible box. */
-.hero-fractal-embed { pointer-events: auto; mix-blend-mode: screen; }
+.hero-fractal-embed {
+  pointer-events: auto;
+  mix-blend-mode: screen;
+  cursor: crosshair;
+  transition: opacity .45s ease, filter .45s ease;
+}
 .hero-fractal-fallback { display: block; width: 100%; height: auto; mix-blend-mode: screen; }
 @keyframes floaty { from { transform: translateY(-8px); } to { transform: translateY(10px); } }
 
+/* pointer is somewhere in the hero: the artwork wakes up */
+.hero-fractal-embed.is-live {
+  opacity: .66;
+  filter: saturate(1.5) brightness(1.16);
+}
+/* click shockwave: fast ignition, slower decay (transition-driven, so it
+   never fights the floaty keyframes or the inline parallax transform) */
+.hero-fractal-embed.fx-pulse {
+  opacity: .8;
+  filter: saturate(1.9) brightness(1.55);
+  transition-duration: .08s;
+}
+
 .hero.small .hero-fractal,
 .hero.small .hero-fractal-embed { width: min(300px, 32vw); opacity: .35; }
+.hero.small .hero-fractal-embed.is-live { opacity: .5; }
+.hero.small .hero-fractal-embed.fx-pulse { opacity: .62; }
+
+/* slow neon scan sweep across the hero (decorative, never intercepts input) */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -35%;
+  height: 30%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .7;
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(34,211,238,.07) 40%,
+    rgba(34,211,238,.16) 50%,
+    rgba(34,211,238,.07) 60%,
+    transparent);
+  animation: heroScan 11s linear infinite;
+}
+@keyframes heroScan {
+  from { transform: translateY(0); }
+  to   { transform: translateY(460%); }
+}
 
 .hero-inner {
   position: relative;
@@ -698,6 +747,7 @@ h1, h2, h3, h4 {
   .site-header, .doc-nav, .hero-fractal, .hero-fractal-embed, .ru-note, .hud-progress { display: none; }
   .hero { background: #fff; border-bottom: 1px solid #bbb; padding: 0 0 12pt; }
   .hero::before { display: none; }
+  .hero::after { display: none; }
   .hero h1, .hero-sub, .hero-sub-ru, .hero-kicker, .hero-credits { color: #111; text-shadow: none; animation: none; }
   .site-footer::before { display: none; }
   a { color: #111; }

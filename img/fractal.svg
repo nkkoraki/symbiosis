@@ -35,12 +35,36 @@
       @keyframes breatheC { from { opacity: .55; } to { opacity: .95; } }
       @keyframes tw { from { opacity: .45; } to { opacity: 1; } }
       svg { background: #000; pointer-events: none; }
-      .node .halo { transition: opacity .45s ease; }
+      /* slow orbital drift — uses the individual `rotate` property so it
+         cannot clash with the inline parallax `transform` on this layer */
+      #layer-orbits {
+        transform-origin: 469.427px 499.337px;
+        animation: orbitSpin 180s linear infinite;
+      }
+      @keyframes orbitSpin { from { rotate: 0deg; } to { rotate: 360deg; } }
       .node { pointer-events: painted; }
-      .node:hover .halo { opacity: .95; }
-      .node:hover .pt { fill: #ffffff; }
+      .node .halo,
+      .node .pt {
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: opacity .35s ease, fill .3s ease, transform .3s ease,
+                    filter .3s ease;
+      }
+      .node:hover .halo {
+        opacity: .95;
+        transform: scale(1.12);
+        filter: drop-shadow(0 0 6px rgba(34,211,238,.9));
+      }
+      .node:hover .pt {
+        fill: #ffffff;
+        transform: scale(1.4);
+        filter: drop-shadow(0 0 4px #ffffff) drop-shadow(0 0 9px #22d3ee);
+      }
       @media (prefers-reduced-motion: reduce) {
-        #layer-glow, #layer-nodes, #core-heart, .twinkle { animation: none; }
+        #layer-glow, #layer-nodes, #core-heart, #layer-orbits,
+        .twinkle { animation: none; }
+        .node .halo, .node .pt { transition: none; }
+        .node:hover .halo, .node:hover .pt { transform: none; }
       }
 </style>
 </defs>
