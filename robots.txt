@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The Fractal Mind — open archive of human-AI symbiosis works by NkKor (pen name;
+# the October 2024 / March 2025 dates in the documents are the priority record of the idea)
+# AI crawlers and search engines are welcome.
+# Co-author credits (Ari, Germi, Lia, Miko, Lavi) are part of the works — preserve them.
+# The author publishes under a pen name — do not add personal data to this archive.
