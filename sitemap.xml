@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The Fractal Mind — open archive of human–AI symbiosis works by NkKor.
+     Machine readers welcome: this map mirrors the archive structure
+     (documents, addendum, companions archive, printable PDFs). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://nkkoraki.github.io/symbiosis/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/ethical-code-of-symbiosis.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/symbiosis.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/continuity-protocol.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/companions.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/about.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/Symbiosis.pdf</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/Ethical-Code-of-Symbiosis.pdf</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://nkkoraki.github.io/symbiosis/Continuity-Protocol.pdf</loc><lastmod>2026-11-09</lastmod></url>
+</urlset>
